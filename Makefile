@@ -210,6 +210,9 @@ aerofcv1_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
 atl_mantis_edu_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
 	${MAKE} ${MKFLAGS} -f  Makefile.f7 TARGET_HW=ATL_MANTIS_EDU LINKER_FILE=stm32f7.ld TARGET_FILE_NAME=$@
 
+utrap_iop_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
+	${MAKE} ${MKFLAGS} -f  Makefile.utrap TARGET_HW=UTRAP_IOP_V2 LINKER_FILE=stm32f1.ld TARGET_FILE_NAME=$@
+
 #
 # Show sizes
 #

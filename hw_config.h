@@ -1591,6 +1591,61 @@
  * # define BOARD_FORCE_BL_PULL            GPIO_PUPD_PULLUP
  */
 
+/****************************************************************************
+ * TARGET_HW_UTRAP_IOP_V2
+ ****************************************************************************/
+
+#elif defined(TARGET_HW_UTRAP_IOP_V2)
+
+# define APP_LOAD_ADDRESS               0x08001000
+# define APP_SIZE_MAX                   0xf000
+# define BOOTLOADER_DELAY               200
+# define BOARD_PIO
+# define INTERFACE_USB                  0
+# define INTERFACE_USART                1
+# define USBDEVICESTRING                ""
+# define USBPRODUCTID                   -1
+
+# define OSC_FREQ                       12
+
+# define BOARD_PIN_LED_ACTIVITY         GPIO15
+# define BOARD_PIN_LED_BOOTLOADER       GPIO11
+# define BOARD_PORT_LED_ACTIVITY        GPIOB
+# define BOARD_PORT_LED_BOOTLOADER      GPIOA
+# define BOARD_CLOCK_LEDS_REGISTER      RCC_APB2ENR
+# define BOARD_CLOCK_LEDS               RCC_APB2ENR_IOPBEN | RCC_APB2ENR_IOPAEN
+
+# define BOARD_LED_ACTIVITY_ON()        gpio_clear (BOARD_PORT_LED_ACTIVITY, BOARD_PIN_LED_ACTIVITY)
+# define BOARD_LED_ACTIVITY_OFF()       gpio_set   (BOARD_PORT_LED_ACTIVITY, BOARD_PIN_LED_ACTIVITY)
+# define BOARD_LED_ACTIVITY_TGL()       gpio_toggle(BOARD_PORT_LED_ACTIVITY, BOARD_PIN_LED_ACTIVITY)
+
+# define BOARD_LED_BOOTLOADER_ON()      gpio_set   (BOARD_PORT_LED_BOOTLOADER, BOARD_PIN_LED_BOOTLOADER)
+# define BOARD_LED_BOOTLOADER_OFF()     gpio_clear (BOARD_PORT_LED_BOOTLOADER, BOARD_PIN_LED_BOOTLOADER)
+# define BOARD_LED_BOOTLOADER_TGL()     gpio_toggle(BOARD_PORT_LED_BOOTLOADER, BOARD_PIN_LED_BOOTLOADER)
+
+# define BOARD_USART                    USART2
+# define BOARD_USART_CLOCK_REGISTER     RCC_APB1ENR
+# define BOARD_USART_CLOCK_BIT          RCC_APB1ENR_USART2EN
+
+# define BOARD_PORT_USART               GPIOA
+# define BOARD_PIN_TX                   GPIO_USART2_TX
+# define BOARD_PIN_RX                   GPIO_USART2_RX
+# define BOARD_USART_PIN_CLOCK_REGISTER RCC_APB2ENR
+# define BOARD_USART_PIN_CLOCK_BIT      RCC_APB2ENR_IOPAEN
+
+# define BOARD_FORCE_BL_PIN             GPIO6
+# define BOARD_FORCE_BL_PORT            GPIOB
+# define BOARD_FORCE_BL_CLOCK_REGISTER  RCC_APB2ENR
+# define BOARD_FORCE_BL_CLOCK_BIT       RCC_APB2ENR_IOPBEN
+# define BOARD_FORCE_BL_PULL            GPIO_CNF_INPUT_FLOAT // depend on external pull
+# define BOARD_FORCE_BL_VALUE           (0)
+
+# define BOARD_FLASH_SECTORS            60
+# define BOARD_TYPE                     95
+# define FLASH_SECTOR_SIZE              0x400
+# define NO_OTP_SN_CHIP                 1
+# define OVERRIDE_USART_BAUDRATE        1500000
+
 #else
 # error Undefined Target Hardware
 #endif
