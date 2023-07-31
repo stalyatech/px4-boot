@@ -1606,7 +1606,7 @@
 # define USBDEVICESTRING                ""
 # define USBPRODUCTID                   -1
 
-# define OSC_FREQ                       12
+# define OSC_FREQ                       24
 
 # define BOARD_PIN_LED_ACTIVITY         GPIO15
 # define BOARD_PIN_LED_BOOTLOADER       GPIO11
@@ -1644,7 +1644,6 @@
 # define BOARD_TYPE                     95
 # define FLASH_SECTOR_SIZE              0x400
 # define NO_OTP_SN_CHIP                 1
-# define OVERRIDE_USART_BAUDRATE        1500000
 
 #else
 # error Undefined Target Hardware
